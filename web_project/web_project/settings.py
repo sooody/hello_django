@@ -124,3 +124,21 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+# 新增配置 静态文件相关
+SECURE_CONTENT_TYPE_NOSNIFF = False
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'web_project/static')
+STATICFILES_DIRS = (
+    ('css', os.path.join(STATIC_ROOT, 'css')),
+    ('images', os.path.join(STATIC_ROOT, 'images')),
+    ('js', os.path.join(STATIC_ROOT, 'js')),
+)
+
+# # settings.py中增加下述代码
+# STATIC_URL = '/static/'   #  相当于访问静态文件的令牌或钥匙，如果想要访问静态文件，就必须以static开头，相当于钥匙，静态文件就是房间
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR,'static'),
+# ]  # 静态文件的路径

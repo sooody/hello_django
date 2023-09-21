@@ -1,5 +1,7 @@
->> 基础教程 https://blog.csdn.net/weixin_40283570/article/details/97240666
->> 创建应用及参数配置 https://blog.csdn.net/weixin_40283570/article/details/88901557
+>> 基础教程
+https://blog.csdn.net/weixin_40283570/article/details/97240666
+>> 创建应用及参数配置 
+https://blog.csdn.net/weixin_40283570/article/details/88901557
 
 ## 1 根目录执行命令，创建虚拟环境
 (避免将Django安装到全局Python环境中，并且可以精确控制应用程序中使用的库)
@@ -12,7 +14,9 @@ python -m venv env
 ## 3 配置终端
 Ctrl + Shift +` 
 或  
-Ctrl + `，它创建一个终端并通过运行其激活脚本自动激活虚拟环境
+Ctrl + `，
+创建一个终端并执行脚本激活虚拟环境： env\scripts\activate
+
 如报错无权限，则用管理员执行：
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 当shell前面有（env）提示，标识虚拟环境已激活

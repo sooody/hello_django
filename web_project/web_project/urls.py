@@ -20,5 +20,5 @@ from web_project import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('show/', views.show),
+    path('show/', views.demopage),
 ]
