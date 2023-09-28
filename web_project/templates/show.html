@@ -14,19 +14,20 @@
   <body>
     <div class="container">
             <div class="col">
-              <form class="form-login" action="/login/" method="post">
+              <form class="form-login" action="/getarg/" method="post">
+                {% csrf_token %}
                   <h3 class="text-center">欢迎登录</h3>
                   <div class="form-group">
-                    <label for="id_username">用户名：</label>
-                    <input type="text" name='username' class="form-control" id="id_username" placeholder="Username" autofocus required>
+                    <label for="id_username">用户名： 后台读取到的内容 -- {{data}}</label>
+                    <input type="text" name='id' class="form-control" id="id" placeholder="Username" autofocus required>
                   </div>
                   <div class="form-group">
                     <label for="id_password">密码：</label>
                     <input type="password" name='password' class="form-control" id="id_password" placeholder="Password" required>
                   </div>
                   <div>
-                  <a href="/register/" class="text-success "><ins>新用户注册</ins></a>
-                  <button type="submit" class="btn btn-primary float-right">登录</button>
+                  <a href="" class="text-success "><ins>新用户注册</ins></a>
+                  <button type="button" class="btn btn-primary float-right" id="login_btn">登录</button>
                   </div>
               </form>
             </div>
@@ -39,5 +40,36 @@
     <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js"></script>
     <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+    <script type="text/javascript">
+      $("#login_btn").click(function () {
+        $.ajax({
+            url: '/getarg/',
+            type: 'post',
+            data: {
+                id: $("#id").val(),
+                csrfmiddlewaretoken: '{{ csrf_token }}'
+            },
+            // 上面data为提交数据，下面data形参指代的就是异步提交的返回结果data
+            success: function (data){
+              alert('{{ data }}');
+            }
+        });
+      });
+                    
+    // .serialize() 方法可将<input>, <textarea> 以及 <select>表单序列化
+    // 成urlencoded格式数据                    
+    // $("#btnSubmit").click(function () {
+    //     let data = $("#loginForm").serialize();
+    //     $.ajax({
+    //         url: "/getarg/", //别忘了加斜杠
+    //         type: $("#loginForm").attr('method'),
+    //         data: data,
+    //         // 下面data形参指代的就是异步提交的返回结果data
+    //         success: function (data) {
+            
+    //         }
+    //     });
+    // }); 
+  </script>
   </body>
 </html>

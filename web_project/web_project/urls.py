@@ -21,4 +21,7 @@ from web_project import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('show/', views.demopage),
+    path('getarg/', views.show_arg),
+
+    # url(r'^blog/<int:_id>', views.BlogListView, name="blog"),
 ]

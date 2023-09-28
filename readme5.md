@@ -10,3 +10,6 @@ https://webframe.xyz
 
 https://landingfolio.com
 
+
+前后端交互参考：
+https://pythondjango.cn/django/basics/7-URLconf/
